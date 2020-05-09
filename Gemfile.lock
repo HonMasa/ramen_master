@@ -104,7 +104,7 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     public_suffix (4.0.4)
-    puma (3.12.1)
+    puma (3.12.4)
     rack (2.2.2)
     rack-proxy (0.6.5)
       rack
@@ -201,12 +201,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionview
   bootsnap (= 1.4.4)
   byebug (= 11.0.1)
   capybara (= 3.28.0)
   jbuilder (= 2.9.1)
   listen (= 3.1.5)
-  puma (= 3.12.1)
+  puma (= 3.12.4)
   rails (= 6.0.0)
   sass-rails (= 5.1.0)
   selenium-webdriver (= 3.142.4)
