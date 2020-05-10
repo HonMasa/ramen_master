@@ -1,0 +1,16 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+
+AsciiComments: #日本語手のコメントを許可する
+  Enabled: false
+
+Documentation: #クラスにコメントを記載しなくても良い
+  Enabled: false
+
+ClassAndModuleChildren: #モジュール名::クラス名の定義を許可する
+  Enabled: false
+
+Style/FrozenStringLiteralComment: # 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
+  Enabled: false
