@@ -1,9 +1,15 @@
-<<h1>ログインアプリ</h1>
+<h1>ログインアプリ</h1>
 
 <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
   <!-- ユーザーがログインしていた時の処理 -->
+  <% if current_user.image? %>
+    <img src='<%= current_user.image %>' class="icon_image" alt="ユーザーアイコン">
+  <% else %>
+    <image src="/assets/default.png" class="icon_image" alt="ユーザーアイコン" %>
+  <% end %>
   <h2><%= current_user.name %></h2>
   <h4> メールアドレス： <%= current_user.email %> </h4>
+  <p><%= current_user.profile %></p>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
 <% else %>
   <!-- ユーザーがログインしていなかった時の処理 -->
