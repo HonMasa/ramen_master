@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    if @post.update(ramen_name: params[:ramen_name], content: params[:content])
+    if @post.update(ramen_name: params[:ramen_name], content: params[:content], image: params[:image])
       flash[:success] = '記事を編集しました！'
       redirect_to action: :show, id: @post.id
     else
@@ -45,6 +45,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:ramen_name, :content)
+    params.require(:post).permit(:ramen_name, :content, :image, :image_cache)
   end
 end

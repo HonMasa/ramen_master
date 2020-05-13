@@ -1,5 +1,6 @@
 <h1>Posts#edit</h1>
 <%= form_tag("/posts/#{@post.id}", method: :patch) do %>
+  <%= file_field_tag :image %>
   <%= label_tag :名前 %>
   <%= text_field_tag :ramen_name, @post.ramen_name %>
   <%= label_tag :内容 %>

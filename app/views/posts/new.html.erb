@@ -1,6 +1,11 @@
 <%= form_with(model: @post, local: true) do |f| %>
   <%#= render 'shared/error_messages', object: f.object %>
   <div class="field">
+    <%= f.file_field :image, id: :post_img %>
+    <%= image_tag @post.image.to_s, id: "img_prev", width: "200px" if @post.image? %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="field">
     <%= f.text_field :ramen_name, placeholder: "ラーメンの名前" %>
   </div>
   <div class="field">
@@ -8,3 +13,20 @@
   </div>
   <%= f.submit "投稿", class: "btn btn-primary" %>
 <% end %>
+
+<script type="text/javascript">
+$(function() {
+ function readURL(input) {
+   if (input.files && input.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('#img_prev').attr('src', e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+   }
+ }
+ $("#post_img").change(function(){
+   readURL(this);
+ });
+});
+</script>

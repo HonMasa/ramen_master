@@ -18,10 +18,11 @@
   <%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->
   <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
 <% end %>
-<ol class="posts">
+<ul class="posts">
   <% @posts.each do |post| %>
     <%= link_to("/posts/#{post.id}") do %>
       <li id="post-<%= post.id %>">
+          <%= image_tag post.image.to_s, :size => '200x200' %>
           <span class="user"><%= post.user.name %></span>
           <span class="content"><%= post.content %></span>
           <span class="timestamp">
@@ -30,4 +31,4 @@
       </li>
     <% end %>
   <% end %>
-</ol>
+</ul>
