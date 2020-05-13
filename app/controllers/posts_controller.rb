@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    if @post.update(ramen_name: params[:ramen_name], content: params[:content], image: params[:image])
+    if @post.update(post_params)
       flash[:success] = '記事を編集しました！'
       redirect_to action: :show, id: @post.id
     else

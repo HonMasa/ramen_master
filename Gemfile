@@ -13,6 +13,9 @@ gem 'turbolinks', '5.2.0'
 gem 'webpacker', '4.0.7'
 gem 'devise'
 gem 'carrierwave'
+gem 'uglifier'
+gem 'jquery-rails'
+gem 'bootstrap'
 
 group :development, :test do
   gem 'byebug',  '11.0.1', platforms: %i[mri mingw x64_mingw]
