@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        ramen_name: ラーメンの名前
+        content: ラーメンの情報
+        

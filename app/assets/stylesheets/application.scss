@@ -19,7 +19,17 @@ header{
 .alert{
   text-align:center;
 }
-
+.error{
+  text-align:center;
+  display: block;
+  ul {
+	padding-left: 0;
+	display: inline-block;
+}
+  ul li {
+	text-align: left;
+}
+}
 
 
 //フッター
@@ -80,3 +90,4 @@ footer{
   }
   a:active { color: black; }
 }
+
