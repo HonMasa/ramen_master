@@ -1,6 +1,14 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :check_guest, only: %i[update destroy]
 
+  def update
+    super
+  end
+
+  def destroy
+    super
+  end
+
   private
 
   def check_guest

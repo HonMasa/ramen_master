@@ -1,13 +1,12 @@
 <%= form_for(@post) do |f| %>
-  <%#= render 'shared/error_messages', object: f.object %>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.file_field :image, id: "post_img" %>
+    <%= f.file_field :image, id: "post_img", value: @post.image %>
     <% if @post.image? %>
       <%= image_tag @post.image.to_s, id: :img_prev, width: "200px" %>
     <% else %>
       <%= image_tag "noimage.jpg", id: :img_prev, width: "200px" %>
     <% end %>
-    <%= f.hidden_field :image_cache %>
   </div>
   <div class="field">
     <%= f.text_field :ramen_name, placeholder: "ラーメンの名前" %>
@@ -29,7 +28,7 @@ $(function() {
      reader.readAsDataURL(input.files[0]);
    }
  }
- $("#post_img").change(function(){
+$("#post_img").change(function(){
    readURL(this);
  });
 });
