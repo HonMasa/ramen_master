@@ -3,9 +3,9 @@
 <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
   <!-- ユーザーがログインしていた時の処理 -->
   <% if current_user.image? %>
-    <img src='<%= current_user.image %>' class="icon_image" alt="ユーザーアイコン">
+    <img src='<%= current_user.image %>' class="icon_image rounded-circle" alt="ユーザーアイコン">
   <% else %>
-    <image src="/assets/default.png" class="icon_image" alt="ユーザーアイコン" %>
+    <image src="/assets/default.png" class="icon_image rounded-circle" alt="ユーザーアイコン" %>
   <% end %>
   <h2><%= current_user.name %></h2>
   <h4> メールアドレス： <%= current_user.email %> </h4>
@@ -18,17 +18,23 @@
   <%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->
   <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
 <% end %>
-<ul class="posts">
-  <% @posts.each do |post| %>
-    <%= link_to("/posts/#{post.id}") do %>
-      <li id="post-<%= post.id %>">
-          <%= image_tag post.image.to_s, :size => '200x200' %>
-          <span class="user"><%= post.user.name %></span>
-          <span class="content"><%= post.content %></span>
-          <span class="timestamp">
-            Posted <%= time_ago_in_words(post.created_at) %> ago.
-          </span>
-      </li>
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="card">
+        <%= link_to("/posts/#{post.id}") do %>
+          <div class="ramen-image" >
+            <%= image_tag post.image.to_s %>
+          </div>
+          <ul>
+            <li class="user"><%= post.user.name %></li>
+            <li class="content"><%= post.content %></li>
+            <li class="timestamp">
+              <%= time_ago_in_words(post.created_at) %>前に作成
+            </li>
+          </ul>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
-</ul>
+  </div>
+</div>

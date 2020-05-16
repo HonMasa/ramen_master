@@ -12,11 +12,15 @@
   </head>
 
   <body>
-    <header>
-      <%= link_to "トップへ", top_index_path %>
-      <%= link_to "新規投稿", "/posts/new" %>
-    </header>
+    <%= render "shared/header"%>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= bootstrap_class_for(message_type) %>"><%= message %></div>
+    <% end %>
     
     <%= yield %>
+  
+    <footer>
+      <p>ramen-master</p>
+    </footer>
   </body>
 </html>

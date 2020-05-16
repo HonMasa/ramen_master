@@ -11,7 +11,7 @@ class PostsController < ApplicationController
       flash[:success] = '記事を投稿しました！'
       redirect_to root_url
     else
-      flash[:alert] = '記事の投稿に失敗しました'
+      flash[:danger] = '記事の投稿に失敗しました'
       render 'posts/new'
     end
   end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
       flash[:success] = '記事を編集しました！'
       redirect_to action: :show, id: @post.id
     else
-      flash[:alert] = '記事の編集に失敗しました'
+      flash[:danger] = '記事の編集に失敗しました'
       render "posts/#{@post.id}/edit"
     end
   end
