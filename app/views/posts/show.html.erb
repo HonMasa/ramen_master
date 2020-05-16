@@ -4,3 +4,32 @@
 <%= @post.content %>
 <%= link_to "編集", "/posts/#{@post.id}/edit" %>
 <%= link_to "削除", "/posts/#{@post.id}", method: :delete, data: { confirm: 'この投稿を削除しますか?' } %>
+
+<div class="comment-wrapper border-top　mb-10">
+  <p class="mt-5">コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+      <% unless c.user.blank? %>
+        <%= link_to("/users/#{c.user.id}") do %>
+          <% if c.user.image? %>
+            <img src='<%= current_user.image %>' class="icon_image rounded-circle" alt="ユーザーアイコン" height="50" width="50">
+          <% else %>
+            <img src="/assets/default.png" class="icon_image rounded-circle" alt="ユーザーアイコン" height="50" width="50" %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= c.user.name unless c.user.blank? %>
+      <br />
+      <%= c.content %>
+    </div>
+    <br />
+  <% end %>
+  <% if user_signed_in? %>
+    <%= form_with(model: [@post, @comment], local: true) do |f| %>
+      <%= f.text_area :content, class: "form-control", rows: 5 %>
+      <%= button_tag type: "submit", class: "btn btn-success float-right mt-1" do %>
+        <i class="far fa-comments"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
