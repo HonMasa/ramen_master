@@ -3,4 +3,4 @@
 <%= @post.user.name %>
 <%= @post.content %>
 <%= link_to "編集", "/posts/#{@post.id}/edit" %>
-<%= link_to "削除", "/posts/#{@post.id}", method: :delete %>
+<%= link_to "削除", "/posts/#{@post.id}", method: :delete, data: { confirm: 'この投稿を削除しますか?' } %>
