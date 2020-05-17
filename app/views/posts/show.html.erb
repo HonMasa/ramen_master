@@ -21,6 +21,9 @@
       <%= c.user.name unless c.user.blank? %>
       <br />
       <%= c.content %>
+      <% if c.user == current_user %>
+        <%= link_to "削除", "/posts/#{@post.id}/comments/#{c.id}" , method: :delete, data: { confirm: 'このコメントを削除しますか?' } %>
+      <% end %>
     </div>
     <br />
   <% end %>

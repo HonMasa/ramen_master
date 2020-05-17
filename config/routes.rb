@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'top#index'
   get 'top/index'
   resources :posts do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
 
   devise_scope :user do
