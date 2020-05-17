@@ -4,10 +4,10 @@ class CommentsController < ApplicationController
     @comment = post.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:success]="コメントしました！"
+      flash[:success] = 'コメントしました！'
       redirect_back(fallback_location: root_path)
     else
-      flash[:danger]="コメントできませんでした！"
+      flash[:danger] = 'コメントできませんでした！'
       redirect_back(fallback_location: root_path)
     end
   end
@@ -15,13 +15,13 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find_by(id: params[:id])
     @comment.destroy
-    flash[:success]="コメントを削除しました！"
+    flash[:success] = 'コメントを削除しました！'
     redirect_back(fallback_location: root_path)
   end
 
   private
 
-    def comment_params
-      params.require(:comment).permit(:content)
-    end
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
 end

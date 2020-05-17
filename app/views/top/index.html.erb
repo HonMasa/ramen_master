@@ -33,6 +33,7 @@
               <%= time_ago_in_words(post.created_at) %>前に作成
             </li>
           </ul>
+          (<%= post.liked_users.count %>)
         <% end %>
       </div>
     <% end %>

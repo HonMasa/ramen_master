@@ -10,3 +10,24 @@
 <% if @user.id == current_user.id && current_user.email != "guest@example.com" %>
   <%= link_to "編集", "/users/edit", class: 'btn btn-success' %>
 <% end %>
+<h3>いいねしている投稿</h3>
+<div class="container">
+  <div class="row">
+    <% @user.liked_posts.each do |post| %>
+      <div class="card">
+        <%= link_to("/posts/#{post.id}") do %>
+          <div class="ramen-image" >
+            <%= image_tag post.image.to_s %>
+          </div>
+          <ul>
+            <li class="user"><%= post.user.name %></li>
+            <li class="content"><%= post.content %></li>
+            <li class="timestamp">
+              <%= time_ago_in_words(post.created_at) %>前に作成
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

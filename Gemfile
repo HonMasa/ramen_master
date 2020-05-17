@@ -5,23 +5,23 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'actionview'
 gem 'bootsnap', '1.4.4', require: false
+gem 'bootstrap'
+gem 'carrierwave'
+gem 'devise'
 gem 'jbuilder', '2.9.1'
-gem 'puma',       '3.12.4'
-gem 'rails',      '6.0.0'
+gem 'jquery-rails'
+gem 'puma', '3.12.4'
+gem 'rails', '6.0.0'
+gem 'rails-i18n'
 gem 'sass-rails', '5.1.0'
 gem 'turbolinks', '5.2.0'
-gem 'webpacker', '4.0.7'
-gem 'devise'
-gem 'carrierwave'
 gem 'uglifier'
-gem 'jquery-rails'
-gem 'bootstrap'
-gem 'rails-i18n'
+gem 'webpacker', '4.0.7'
 
 group :development, :test do
-  gem 'byebug',  '11.0.1', platforms: %i[mri mingw x64_mingw]
-  gem 'sqlite3', '1.4.1'
+  gem 'byebug', '11.0.1', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'sqlite3', '1.4.1'
 end
 
 group :development do
