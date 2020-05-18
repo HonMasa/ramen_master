@@ -4,15 +4,12 @@
 <%= @post.content %>
 <%= link_to "編集", "/posts/#{@post.id}/edit" %>
 <%= link_to "削除", "/posts/#{@post.id}", method: :delete, data: { confirm: 'この投稿を削除しますか?' } %>
-<h3>いいね件数: <%= @post.likes.count %></h3>
-<% if current_user.already_liked?(@post) %>
-  <%= button_to 'いいねを取り消す', post_like_path(@post), method: :delete %>
-<% else %>
-  <%= button_to 'いいね', post_likes_path(@post) %>
-<% end %>
+<div id="post-<%= @post.id %>">
+  <%= render "likes/like", post: @post %>
+</div>
 <h2>いいねしたユーザー</h2>
 <% @post.liked_users.each do |user| %>
-  <li><%= user.email %></li>
+  <li><%= user.name %></li>
 <% end %>
 
 <div class="comment-wrapper border-top　mb-10">

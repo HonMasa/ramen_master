@@ -1,12 +1,25 @@
 class LikesController < ApplicationController
   def create
-    @like = current_user.likes.create(post_id: params[:post_id])
-    redirect_back(fallback_location: root_path)
+    @post = Post.find(params[:post_id])
+    unless current_user.already_liked?(@post)
+      @post.like(current_user)
+      @post.reload
+      respond_to do |format|
+        format.html { redirect_to request.referrer || root_url }
+        format.js
+      end
+    end
   end
 
   def destroy
-    @like = Like.find_by(post_id: params[:post_id], user_id: current_user.id)
-    @like.destroy
-    redirect_back(fallback_location: root_path)
+    @post = Like.find(params[:id]).post
+    if current_user.already_liked?(@post)
+      @post.dislike(current_user)
+      @post.reload
+      respond_to do |format|
+        format.html { redirect_to request.referrer || root_url }
+        format.js
+      end
+    end
   end
 end
