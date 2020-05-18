@@ -5,7 +5,7 @@ class AddLikesCountToPosts < ActiveRecord::Migration[6.0]
 
   def up
     _up
-  rescue => e
+  rescue StandardError => e
     _down
     raise e
   end
@@ -28,4 +28,3 @@ class AddLikesCountToPosts < ActiveRecord::Migration[6.0]
     remove_column :posts, :likes_count if column_exists? :posts, :likes_count
   end
 end
-

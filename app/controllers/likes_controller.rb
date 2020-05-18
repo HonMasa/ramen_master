@@ -5,10 +5,11 @@ class LikesController < ApplicationController
       @post.like(current_user)
       @post.reload
       respond_to do |format|
-        format.html { redirect_to request.referrer || root_url }
+        format.html { redirect_to request.referer || root_url }
         format.js
       end
     end
+    return if current_user.already_liked?(@post)
   end
 
   def destroy
@@ -17,9 +18,10 @@ class LikesController < ApplicationController
       @post.dislike(current_user)
       @post.reload
       respond_to do |format|
-        format.html { redirect_to request.referrer || root_url }
+        format.html { redirect_to request.referer || root_url }
         format.js
       end
     end
+    return unless current_user.already_liked?(@post)
   end
 end
