@@ -7,10 +7,9 @@
 <div id="post-<%= @post.id %>">
   <%= render "likes/like", post: @post %>
 </div>
-<h2>いいねしたユーザー</h2>
-<% @post.liked_users.each do |user| %>
-  <li><%= user.name %></li>
-<% end %>
+<div id="post-user-<%= @post.id %>">
+<%= render "likes/liking_users", post: @post %>
+</div>
 
 <div class="comment-wrapper border-top　mb-10">
   <p class="mt-5">コメント一覧</p>
