@@ -22,7 +22,10 @@ gem 'webpacker', '4.0.7'
 group :development, :test do
   gem 'byebug', '11.0.1', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'factory_bot'
   gem 'sqlite3', '1.4.1'
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'forgery_ja'
 end
 
 group :development do
@@ -32,9 +35,12 @@ group :development do
   gem 'spring',                '2.1.0'
   gem 'spring-watcher-listen', '2.0.1'
   gem 'web-console',           '4.0.1'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
+  gem 'database_cleaner', '~> 1.0.1'
+  gem 'launchy', '~> 2.3.0'
   gem 'capybara',           '3.28.0'
   gem 'selenium-webdriver', '3.142.4'
   gem 'webdrivers',         '4.1.2'
