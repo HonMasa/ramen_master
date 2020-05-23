@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  # before_action :logged_in_user, only: [:create, :destroy]
-  # before_action :correct_user,   only: :destroy
+  before_action :authenticate_user!, except: [:show]
+  before_action :correct_user,   only: [:edit, :destroy, :update]
   def new
     @post = Post.new
   end
@@ -46,6 +46,14 @@ class PostsController < ApplicationController
   end
 
   private
+  
+  def correct_user
+    @post = Post.find_by(id: params[:id])
+    if current_user.id != @post.user_id
+      flash[:danger] = "あなたはこの投稿の投稿者ではありません"
+      redirect_to root_path
+    end
+  end
 
   def post_params
     params.require(:post).permit(:ramen_name, :content, :image, :image_cache)

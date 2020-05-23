@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  # before_action :authenticate_user!
   def create
     @post = Post.find(params[:post_id])
     unless current_user.already_liked?(@post)
@@ -24,4 +25,7 @@ class LikesController < ApplicationController
     end
     return unless current_user.already_liked?(@post)
   end
+  
+  
+
 end
