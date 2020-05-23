@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user, only: [:destory]
 
   def create
     post = Post.find(params[:post_id])
@@ -20,14 +19,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     flash[:success] = 'コメントを削除しました！'
     redirect_back(fallback_location: root_path)
-  end
-
-  def correct_user
-    @comment = Comment.find_by(id: params[:id])
-    if @comment.user_id != current_user.id
-      flash[:danger] = 'あなたのコメントではありません'
-      render "/posts/#{@comment.post_id}"
-    end
   end
 
   private

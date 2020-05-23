@@ -14,3 +14,7 @@ ClassAndModuleChildren: #モジュール名::クラス名の定義を許可す�
 
 Style/FrozenStringLiteralComment: # 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
   Enabled: false
+  
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'

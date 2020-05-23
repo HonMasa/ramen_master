@@ -9,6 +9,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def edit
+    super
+  end
+
   private
 
   def check_guest

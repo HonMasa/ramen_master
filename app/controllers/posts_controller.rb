@@ -53,6 +53,7 @@ class PostsController < ApplicationController
       flash[:danger] = 'あなたはこの投稿の投稿者ではありません'
       redirect_to root_path
     end
+    return unless current_user.id != @post.user_id
   end
 
   def post_params
