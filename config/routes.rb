@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'users/show'
   get 'posts/new'
   get 'posts/show'
   get 'posts/edit'
   root 'top#index'
   get 'top/index'
+
   resources :posts do
     resources :comments, only: %i[create destroy]
   end

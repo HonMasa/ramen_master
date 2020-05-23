@@ -7,8 +7,11 @@
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 <p>プロフィール : <%= @user.profile %></p>
-<% if @user.id == current_user.id && current_user.email != "guest@example.com" %>
-  <%= link_to "編集", "/users/edit", class: 'btn btn-success' %>
+<% if current_user != nil %>
+  <% if @user.id == current_user.id && current_user.email != "guest@example.com" %>
+    <%= link_to "編集", "/users/edit", class: 'btn btn-success' %>
+    <%= link_to "削除", "/users", class: 'btn btn-danger', method: :delete, data: {confirm: "ユーザーを削除しますか？"} %>
+  <% end %>
 <% end %>
 <h3>いいねしている投稿</h3>
 <div class="container">

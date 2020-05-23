@@ -25,7 +25,4 @@ class LikesController < ApplicationController
     end
     return unless current_user.already_liked?(@post)
   end
-  
-  
-
 end
