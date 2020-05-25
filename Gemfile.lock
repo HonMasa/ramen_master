@@ -176,7 +176,7 @@ GEM
       ast (~> 2.4.0)
     popper_js (1.16.0)
     public_suffix (4.0.5)
-    puma (3.12.4)
+    puma (3.12.6)
     rack (2.2.2)
     rack-proxy (0.6.5)
       rack
@@ -345,7 +345,7 @@ DEPENDENCIES
   kaminari
   launchy (~> 2.3.0)
   listen (= 3.1.5)
-  puma (= 3.12.4)
+  puma (= 3.12.6)
   rails (= 6.0.0)
   rails-i18n
   rspec-rails (= 4.0.1)
