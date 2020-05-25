@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET #show' do
-      let(:user) { FactoryBot.create(:user)}
-    
+    let(:user) { FactoryBot.create(:user) }
+
     # 正常にレスポンスを返すこと
     it 'responds successfully' do
       get "/users/#{user.id}"
@@ -19,7 +19,7 @@ RSpec.describe 'Users', type: :request do
   describe '#edit' do
     # 認可されたユーザーとして
     context 'as an authorized user' do
-      let(:user) { FactoryBot.create(:user)}
+      let(:user) { FactoryBot.create(:user) }
 
       # 正常にレスポンスを返すこと
       it 'responds successfully' do
@@ -57,7 +57,7 @@ RSpec.describe 'Users', type: :request do
 
     # ログインして
     context 'sined in' do
-      let(:user) { FactoryBot.create(:user)}
+      let(:user) { FactoryBot.create(:user) }
 
       # ダッシュボードにリダイレクトする
       it 'responds successfully' do
@@ -93,7 +93,7 @@ RSpec.describe 'Users', type: :request do
 
     # ログインした状態で
     context 'signed in' do
-      let(:user) { FactoryBot.create(:user)}
+      let(:user) { FactoryBot.create(:user) }
       # 302レスポンスを返すこと
       it 'returns a 302 response' do
         user_params = FactoryBot.attributes_for(:user)
@@ -115,7 +115,7 @@ RSpec.describe 'Users', type: :request do
   describe '#update' do
     # 認可されたユーザーとして
     context 'as an authorized user' do
-      let(:user) { FactoryBot.create(:user)}
+      let(:user) { FactoryBot.create(:user) }
 
       # 投稿を更新できる
       it 'updates a user' do
@@ -171,7 +171,7 @@ RSpec.describe 'Users', type: :request do
   describe '#destroy' do
     # 認可されたユーザーとして
     context 'as an authorized user' do
-      let(:user) { FactoryBot.create(:user)}
+      let(:user) { FactoryBot.create(:user) }
 
       # ユーザーを削除できること
       it 'deletes a user' do
