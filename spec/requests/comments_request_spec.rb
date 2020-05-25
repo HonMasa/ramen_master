@@ -87,7 +87,7 @@ RSpec.describe 'Comments', type: :request do
         expect(response).to redirect_to '/users/sign_in'
       end
 
-      # 投稿を削除できないこと
+      # コメントを削除できないこと
       it 'does not delete the post' do
         expect { delete "/posts/#{@post.id}/comments/#{@comment.id}" }.to_not change(@post.comments, :count)
       end
