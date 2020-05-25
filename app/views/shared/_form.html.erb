@@ -2,11 +2,13 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.file_field :image, id: "post_img", value: @post.image %>
+    <%= f.hidden_field :image_cache %>
     <% if @post.image? %>
       <%= image_tag @post.image.to_s, id: :img_prev, width: "200px" %>
     <% else %>
       <%= image_tag "noimage.jpg", id: :img_prev, width: "200px" %>
     <% end %>
+    
   </div>
   <div class="field">
     <%= f.text_field :ramen_name, placeholder: "ラーメンの名前" %>

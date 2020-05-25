@@ -1,24 +1,5 @@
-<h1>ログインアプリ</h1>
 
-<% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
-  <!-- ユーザーがログインしていた時の処理 -->
-  <% if current_user.image? %>
-    <img src='<%= current_user.image %>' class="icon_image rounded-circle" alt="ユーザーアイコン">
-  <% else %>
-    <image src="/assets/default.png" class="icon_image rounded-circle" alt="ユーザーアイコン" %>
-  <% end %>
-  <h2><%= current_user.name %></h2>
-  <h4> メールアドレス： <%= current_user.email %> </h4>
-  <p><%= current_user.profile %></p>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
-<% else %>
-  <!-- ユーザーがログインしていなかった時の処理 -->
-  <h2> 現在ログインしていません </h2>
-  <%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->
-  <%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->
-  <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
-<% end %>
-<div class="container">
+<div class="container skill-list jscroll">
   <div class="row">
     <% @posts.each do |post| %>
       <div class="card">
@@ -39,5 +20,26 @@
         <% end %>
       </div>
     <% end %>
+    <%= paginate @posts %>
   </div>
 </div>
+
+<script>
+  $(function() {
+    $('.jscroll').jscroll({
+      contentSelector: '.skill-list',
+      nextSelector: 'span.next:last a'
+    });
+  });
+  
+  $(window).on('scroll', function() {
+    scrollHeight = $(document).height();
+    scrollPosition = $(window).height() + $(window).scrollTop();
+    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
+          $('.jscroll').jscroll({
+            contentSelector: '.skill-list',
+            nextSelector: 'span.next:last a'
+          });
+    }
+  });
+</script>
