@@ -2,17 +2,16 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET #show' do
-    before do
-      @user = FactoryBot.create(:user)
-    end
+      let(:user) { FactoryBot.create(:user)}
+    
     # 正常にレスポンスを返すこと
     it 'responds successfully' do
-      get "/users/#{@user.id}"
+      get "/users/#{user.id}"
       expect(response).to be_successful
     end
     # 200レスポンスを返すこと
     it 'returns a 200 response' do
-      get "/users/#{@user.id}"
+      get "/users/#{user.id}"
       expect(response).to have_http_status '200'
     end
   end
@@ -20,13 +19,11 @@ RSpec.describe 'Users', type: :request do
   describe '#edit' do
     # 認可されたユーザーとして
     context 'as an authorized user' do
-      before do
-        @user = FactoryBot.create(:user)
-      end
+      let(:user) { FactoryBot.create(:user)}
 
       # 正常にレスポンスを返すこと
       it 'responds successfully' do
-        sign_in @user
+        sign_in user
         get '/users/edit'
         expect(response).to be_successful
       end
@@ -60,13 +57,11 @@ RSpec.describe 'Users', type: :request do
 
     # ログインして
     context 'sined in' do
-      before do
-        @user = FactoryBot.create(:user)
-      end
+      let(:user) { FactoryBot.create(:user)}
 
       # ダッシュボードにリダイレクトする
       it 'responds successfully' do
-        sign_in @user
+        sign_in user
         get '/users/sign_up'
         expect(response).to redirect_to root_path
       end
@@ -98,13 +93,11 @@ RSpec.describe 'Users', type: :request do
 
     # ログインした状態で
     context 'signed in' do
-      before do
-        @user = FactoryBot.create(:user, :guest)
-      end
+      let(:user) { FactoryBot.create(:user)}
       # 302レスポンスを返すこと
       it 'returns a 302 response' do
         user_params = FactoryBot.attributes_for(:user)
-        sign_in @user
+        sign_in user
         post '/users', params: { user: user_params }
         expect(response).to have_http_status '302'
       end
@@ -112,7 +105,7 @@ RSpec.describe 'Users', type: :request do
       # ダッシュボードヘリダイレクトすること
       it 'redirects to root_path' do
         user_params = FactoryBot.attributes_for(:user)
-        sign_in @user
+        sign_in user
         post '/users', params: { user: user_params }
         expect(response).to redirect_to root_path
       end
@@ -122,16 +115,14 @@ RSpec.describe 'Users', type: :request do
   describe '#update' do
     # 認可されたユーザーとして
     context 'as an authorized user' do
-      before do
-        @user = FactoryBot.create(:user)
-      end
+      let(:user) { FactoryBot.create(:user)}
 
       # 投稿を更新できる
       it 'updates a user' do
         user_params = FactoryBot.attributes_for(:user, name: 'New Name')
-        sign_in @user
+        sign_in user
         patch '/users', params: { user: user_params }
-        expect(@user.reload.name).to eq 'New Name'
+        expect(user.reload.name).to eq 'New Name'
       end
     end
 
@@ -180,13 +171,11 @@ RSpec.describe 'Users', type: :request do
   describe '#destroy' do
     # 認可されたユーザーとして
     context 'as an authorized user' do
-      before do
-        @user = FactoryBot.create(:user)
-      end
+      let(:user) { FactoryBot.create(:user)}
 
       # ユーザーを削除できること
       it 'deletes a user' do
-        sign_in @user
+        sign_in user
         expect { delete '/users' }.to change { User.count }.by(-1)
       end
     end
