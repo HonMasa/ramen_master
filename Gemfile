@@ -12,7 +12,7 @@ gem 'devise'
 gem 'jbuilder', '2.9.1'
 gem 'jquery-rails'
 gem "puma", ">= 3.12.6"
-gem 'rails', '6.0.0'
+gem 'rails', '6.0.3.1'
 gem 'rails-i18n'
 gem 'sass-rails', '5.1.0'
 gem 'shoulda-matchers'
