@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'actionview'
+gem "actionview", ">= 6.0.0"
 gem 'bootsnap', '1.4.4', require: false
 gem 'bootstrap'
 gem 'carrierwave'
@@ -11,7 +11,7 @@ gem 'counter_culture'
 gem 'devise'
 gem 'jbuilder', '2.9.1'
 gem 'jquery-rails'
-gem 'puma', '3.12.4'
+gem "puma", ">= 3.12.6"
 gem 'rails', '6.0.0'
 gem 'rails-i18n'
 gem 'sass-rails', '5.1.0'
@@ -20,6 +20,9 @@ gem 'turbolinks', '5.2.0'
 gem 'uglifier'
 gem 'webpacker', '4.0.7'
 gem 'kaminari'
+gem "activesupport", ">= 6.0.0"
+gem "actionpack", ">= 6.0.0"
+gem "activestorage", ">= 6.0.0"
 
 group :development, :test do
   gem 'byebug', '11.0.1', platforms: %i[mri mingw x64_mingw]
