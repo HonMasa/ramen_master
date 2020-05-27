@@ -11,7 +11,7 @@ gem 'counter_culture'
 gem 'devise'
 gem 'jbuilder', '2.9.1'
 gem 'jquery-rails'
-gem 'puma', '3.12.4'
+gem "puma", ">= 3.12.6"
 gem 'rails', '6.0.3.1'
 gem 'rails-i18n'
 gem 'sass-rails', '5.1.0'
