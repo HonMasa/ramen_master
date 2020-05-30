@@ -14,7 +14,25 @@
     <%= f.text_field :ramen_name, placeholder: "ラーメンの名前" %>
   </div>
   <div class="field">
+    <%= f.select :ramen_kind, [["醤油", "醤油"], ["塩", "塩"], ["味噌", "味噌"], 
+      ["豚骨", "豚骨"], ["G系", "G系"], ["家系", "家系"], ["つけ麺", "つけ麺"], 
+      ["油そば", "油そば"], ["その他", "その他"]], include_blank: "選択して下さい" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :shop_name, placeholder: "店の名前" %>
+  </div>
+  <div id="star">
+    <%= f.label :star,'評価 ' %>
+    <%= f.hidden_field :star, id: :review_star %>
+  </div>
+  <div class="field">
     <%= f.text_area :content, placeholder: "ラーメンの情報を書いてください" %>
+  </div>
+  <div class="field">
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
+  </div>
+  <div class="field">
+    <%= f.text_area :address, placeholder: "店の住所を書いてください" %>
   </div>
   <%= f.submit "投稿", class: "btn btn-primary" %>
 <% end %>
@@ -34,4 +52,14 @@ $("#post_img").change(function(){
    readURL(this);
  });
 });
+
+// 評価
+$('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'post[star]',
+    half: true,
+  });
 </script>

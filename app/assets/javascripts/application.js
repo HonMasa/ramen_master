@@ -4,3 +4,4 @@
 //= require bootstrap
 //= require_tree .
 //= require jquery.jscroll.min.js
+//= require jquery_raty.js
