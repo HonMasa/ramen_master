@@ -1,7 +1,13 @@
 <h1><%= @post.ramen_name %></h1>
 <%= image_tag @post.image.to_s, :size => '200x200' %>
+<h4>評価：<%= @post.star %>点</h4>
+<div id="star-rate-<%= @post.id %>"></div>
+<%= @post.shop_name %>
+<%= @post.ramen_kind %>
 <%= @post.user.name %>
 <%= @post.content %>
+<%= @post.prefecture.name %>
+<%= @post.address %>
 <%= link_to "編集", "/posts/#{@post.id}/edit" %>
 <%= link_to "削除", "/posts/#{@post.id}", method: :delete, data: { confirm: 'この投稿を削除しますか?' } %>
 <div id="post-<%= @post.id %>">
@@ -42,3 +48,14 @@
     <% end %>
   <% end %>
 </div>
+<script>
+$('#star-rate-<%= @post.id %>').raty({
+  size: 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  starHalf: '<%= asset_path('star-half.png') %>',
+  half: true,
+  readOnly: true,
+  score: <%= @post.star %>,
+});
+</script>
