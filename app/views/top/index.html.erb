@@ -1,6 +1,29 @@
+<!--検索機能-->
+<%= search_form_for @search,:url => {controller: "top", action: "index"} do |f| %>
+  <div class="form-group">
+    <%= f.label :ramen_name_cont, "ラーメン名や店名で検索" %>
+    <%= f.text_field :ramen_name_or_shop_name_cont, class: "form-control" %>
+    <%= f.label :prefecture_code_cont, "都道府県" %>
+    <%= f.collection_select :prefecture_code_eq, JpPrefecture::Prefecture.all, :code, :name, include_blank: "選択して下さい" %>
+    <%= f.label :ramen_kind_cont, "種類" %>
+    <%= f.select :ramen_kind_eq, [["醤油", "醤油"], ["塩", "塩"], ["味噌", "味噌"], 
+      ["豚骨", "豚骨"], ["G系", "G系"], ["家系", "家系"], ["つけ麺", "つけ麺"], 
+      ["油そば", "油そば"], ["その他", "その他"]], include_blank: "選択して下さい" %>
+    <%= f.label :star_gteq, "評価" %>
+    <%= f.number_field :star_gteq, step: "0.1", class: "form-control"%>以上
+    <%= f.select( :sorts, { '並び替え': 'id desc',
+      '評価の高い順': 'star desc', '日付の古い順': 'created_at asc',
+      '日付の新しい順': 'created_at desc', 'いいね!の多い順': 'likes_count desc' }) %>
+  </div>
+  <div class="actions"><%= f.submit "検索" %></div>
+<% end %>
+
 
 <div class="container skill-list jscroll">
   <div class="row">
+    <% if @posts.empty? %>
+      <h1>該当する投稿がありません</h1>
+    <% end %>
     <% @posts.each do |post| %>
       <div class="card">
         <%= link_to("/posts/#{post.id}") do %>
