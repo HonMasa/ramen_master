@@ -10,18 +10,18 @@ gem 'carrierwave'
 gem 'counter_culture'
 gem 'devise'
 gem 'jbuilder', '2.9.1'
+gem 'jp_prefecture'
 gem 'jquery-rails'
-gem "puma", ">= 3.12.6"
+gem 'kaminari'
+gem 'puma', '>= 3.12.6'
 gem 'rails', '6.0.3.1'
 gem 'rails-i18n'
+gem 'ransack'
 gem 'sass-rails', '5.1.0'
 gem 'shoulda-matchers'
 gem 'turbolinks', '5.2.0'
 gem 'uglifier'
 gem 'webpacker', '4.0.7'
-gem 'kaminari'
-gem 'jp_prefecture'
-gem 'ransack'
 
 group :development, :test do
   gem 'byebug', '11.0.1', platforms: %i[mri mingw x64_mingw]

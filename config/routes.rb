@@ -19,4 +19,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   get 'users/:id' => 'users#show'
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: %i[create destroy]
 end

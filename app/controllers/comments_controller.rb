@@ -7,11 +7,10 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = 'コメントしました！'
-      redirect_back(fallback_location: root_path)
     else
       flash[:danger] = 'コメントできませんでした！'
-      redirect_back(fallback_location: root_path)
     end
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
