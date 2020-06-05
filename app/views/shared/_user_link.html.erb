@@ -1,0 +1,4 @@
+<%= link_to("/users/#{user.id}") do %>
+  <%= render "shared/user_image", user: user %>
+  <%= user.name %>
+<% end %>

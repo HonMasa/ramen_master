@@ -3,14 +3,7 @@
         <h1><%= link_to "Ramen-Master", top_index_path %></h1>
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to("/users/#{current_user.id}") do %>
-              <% if current_user.image? %>
-                <img src='<%= current_user.image %>' class="icon_image rounded-circle" alt="ユーザーアイコン" height="50" width="50">
-              <% else %>
-                <image src="/assets/default.png" class="icon_image rounded-circle" alt="ユーザーアイコン" height="50" width="50" %>
-              <% end %>
-              <%= current_user.name %>
-            <% end %>
+            <%= render "shared/user_link", user: current_user %>
           </li>
         <% end %>
         
