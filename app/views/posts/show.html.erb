@@ -1,15 +1,21 @@
+<div class="container">
 <h1><%= @post.ramen_name %></h1>
 <%= image_tag @post.image.to_s, :size => '200x200' %>
-<h4>評価：<%= @post.star %>点</h4>
+<h5>評価：<%= @post.star %>点</h5>
 <div id="star-rate-<%= @post.id %>"></div>
+<h5>店名</h5>
 <%= @post.shop_name %>
+<h5>ラーメンの種類</h5>
 <%= @post.ramen_kind %>
+<h5>投稿ユーザー</h5>
 <%= @post.user.name %>
+<h5>ラーメン情報</h5>
 <%= @post.content %>
-<%= @post.prefecture.name %>
+<h5>住所</h5>
 <%= @post.address %>
-<%= link_to "編集", "/posts/#{@post.id}/edit" %>
-<%= link_to "削除", "/posts/#{@post.id}", method: :delete, data: { confirm: 'この投稿を削除しますか?' } %>
+<%= link_to "削除", "/posts/#{@post.id}", method: :delete, class: "btn btn-danger float-right", data: { confirm: 'この投稿を削除しますか?' } %>
+<%= link_to "編集", "/posts/#{@post.id}/edit", class: "btn btn-success float-right" %>
+
 <div id="post-<%= @post.id %>">
   <%= render "likes/like", post: @post %>
 </div>
@@ -18,7 +24,10 @@
 </div>
 
 <div class="comment-wrapper border-top　mb-10">
-  <p class="mt-5">コメント一覧</p>
+  <h5><i class="far fa-comments"></i>コメント</h5>
+  <% if @comments.first.content==nil %>
+    <p>この投稿にはまだコメントがありません</p>
+  <% end %>
   <% @comments.each do |c| %>
     <div>
       <% unless c.user.blank? %>
@@ -28,25 +37,28 @@
           <% else %>
             <img src="/assets/default.png" class="icon_image rounded-circle" alt="ユーザーアイコン" height="50" width="50" %>
           <% end %>
+          <%= c.user.name unless c.user.blank? %>
         <% end %>
       <% end %>
-      <%= c.user.name unless c.user.blank? %>
       <br />
       <%= c.content %>
       <% if c.user == current_user %>
-        <%= link_to "削除", "/posts/#{@post.id}/comments/#{c.id}" , method: :delete, data: { confirm: 'このコメントを削除しますか?' } %>
+        <%= link_to "削除", "/posts/#{@post.id}/comments/#{c.id}" , method: :delete, class: "btn btn-danger float-right", data: { confirm: 'このコメントを削除しますか?' } %>
       <% end %>
     </div>
     <br />
   <% end %>
-  <% if user_signed_in? %>
-    <%= form_with(model: [@post, @comment], local: true) do |f| %>
-      <%= f.text_area :content, class: "form-control", rows: 5 %>
-      <%= button_tag type: "submit", class: "btn btn-success float-right mt-1" do %>
-        <i class="far fa-comments"></i> コメントする
+  <div class="form-group">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@post, @comment], local: true) do |f| %>
+        <%= f.text_area :content, class: "form-control", rows: 5 %>
+        <%= button_tag type: "submit", class: "btn btn-success float-right mt-1" do %>
+          <i class="far fa-comments"></i> コメントする
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
+  </div>
+</div>
 </div>
 <script>
 $('#star-rate-<%= @post.id %>').raty({

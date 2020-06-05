@@ -1,4 +1,7 @@
-<h2>いいねしたユーザー</h2>
+<h5>いいねしたユーザー</h5>
+<% if post.liked_users.blank? %>
+   <p>この投稿にいいねしたユーザーはまだいません</p>
+<% end %>
 <% post.liked_users.each do |user| %>
   <li><%= user.name %></li>
 <% end %>
