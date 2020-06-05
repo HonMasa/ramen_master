@@ -3,5 +3,5 @@
    <p>この投稿にいいねしたユーザーはまだいません</p>
 <% end %>
 <% post.liked_users.each do |user| %>
-  <li><%= user.name %></li>
+  <li><%= render "shared/user_link", user: user %></li>
 <% end %>

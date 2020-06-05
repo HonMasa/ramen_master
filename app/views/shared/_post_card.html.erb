@@ -1,0 +1,22 @@
+<% if posts.empty? %>
+      <h1>該当する投稿がありません</h1>
+    <% end %>
+    <% posts.each do |post| %>
+      <div class="card">
+        <%= link_to("/posts/#{post.id}") do %>
+          <div class="ramen-image" >
+            <%= image_tag post.image.to_s %>
+          </div>
+          <ul>
+            <li class="user"><%= post.user.name %></li>
+            <li class="content"><%= post.content %></li>
+            <li class="timestamp">
+              <%= time_ago_in_words(post.created_at) %>前に作成
+            </li>
+          </ul>
+          <div id="post-<%= post.id %>">
+            <%= render "likes/like", post: post %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>

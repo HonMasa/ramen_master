@@ -1,10 +1,9 @@
-<h1>Users#show</h1>
+<h1><%= @user.name %></h1>
 <% if @user.image? %>
   <img src='<%= @user.image %>' class="icon_image rounded-circle" alt="ユーザーアイコン" height="200" width="200">
 <% else %>
   <img src="/assets/default.png" class="icon_image rounded-circle" alt="ユーザーアイコン" height="200" width="200">
 <% end %>
-<p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 <p>プロフィール : <%= @user.profile %></p>
 <div id="relationship">
@@ -22,21 +21,6 @@
 <h3>いいねしている投稿</h3>
 <div class="container">
   <div class="row">
-    <% @user.liked_posts.each do |post| %>
-      <div class="card">
-        <%= link_to("/posts/#{post.id}") do %>
-          <div class="ramen-image" >
-            <%= image_tag post.image.to_s %>
-          </div>
-          <ul>
-            <li class="user"><%= post.user.name %></li>
-            <li class="content"><%= post.content %></li>
-            <li class="timestamp">
-              <%= time_ago_in_words(post.created_at) %>前に作成
-            </li>
-          </ul>
-        <% end %>
-      </div>
-    <% end %>
+    <%= render "shared/post_card", posts: @user.liked_posts %>
   </div>
 </div>

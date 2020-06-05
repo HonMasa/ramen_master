@@ -31,14 +31,7 @@
   <% @comments.each do |c| %>
     <div>
       <% unless c.user.blank? %>
-        <%= link_to("/users/#{c.user.id}") do %>
-          <% if c.user.image? %>
-            <img src='<%= current_user.image %>' class="icon_image rounded-circle" alt="ユーザーアイコン" height="50" width="50">
-          <% else %>
-            <img src="/assets/default.png" class="icon_image rounded-circle" alt="ユーザーアイコン" height="50" width="50" %>
-          <% end %>
-          <%= c.user.name unless c.user.blank? %>
-        <% end %>
+        <%= render "shared/user_link", user: c.user %>
       <% end %>
       <br />
       <%= c.content %>

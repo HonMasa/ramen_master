@@ -1,0 +1,5 @@
+<% if user.image? %>
+  <img src='<%= user.image %>' class="icon_image rounded-circle" alt="ユーザーアイコン" height="50" width="50">
+<% else %>
+  <img src="/assets/default.png" class="icon_image rounded-circle" alt="ユーザーアイコン" height="50" width="50" %>
+<% end %>
