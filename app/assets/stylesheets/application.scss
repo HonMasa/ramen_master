@@ -1,5 +1,10 @@
 @import "bootstrap";
 
+.any_body{
+  margin-top:30px;
+}
+
+
 
 //ヘッダー
 header{
@@ -9,6 +14,7 @@ header{
     color:white;
     margin: auto 10px;
   }
+  
 }
 .links{
   background-color:#ff6600;
@@ -31,21 +37,6 @@ header{
 }
 }
 
-
-//フッター
-
-footer{
-  width: 100%;
-  height: 60px; 
-  background-color:#ff6600;
-  text-align:center;
-  
-  p{
-    font-size:20px;
-    color:white;
-    line-height: 60px;
-  }
-}
 
 
 
@@ -96,3 +87,24 @@ footer{
   display: none;
 }
 }
+
+//会員登録・ログイン画面
+.btn-user{
+  margin-bottom:20px;
+}
+
+//フッター
+
+footer{
+  width: 100%;
+  height: 60px; 
+  background-color:#ff6600;
+  text-align:center;
+  margin-top: 30px;
+  p{
+    font-size:20px;
+    color:white;
+    line-height: 60px;
+  }
+}
+

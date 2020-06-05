@@ -1,7 +1,9 @@
-<%= form_for(@post) do |f| %>
+
+<%= form_for(@post) do |f|%>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.file_field :image, id: "post_img", value: @post.image %>
+  <div class="form-group">
+    <%= f.label :image, 'ラーメンの写真' %>
+    <%= f.file_field :image, id: "post_img", value: @post.image, class: "form-control-file" %>
     <%= f.hidden_field :image_cache %>
     <% if @post.image? %>
       <%= image_tag @post.image.to_s, id: :img_prev, width: "200px" %>
@@ -10,32 +12,40 @@
     <% end %>
     
   </div>
-  <div class="field">
-    <%= f.text_field :ramen_name, placeholder: "ラーメンの名前" %>
+  <div class="form-group">
+    <%= f.label :ramen_name, 'ラーメン名' %>
+    <%= f.text_field :ramen_name, placeholder: "ラーメンの名前を書いてください", class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
+    <%= f.label :ramen_kind, 'ラーメンの種類' %>
     <%= f.select :ramen_kind, [["醤油", "醤油"], ["塩", "塩"], ["味噌", "味噌"], 
       ["豚骨", "豚骨"], ["G系", "G系"], ["家系", "家系"], ["つけ麺", "つけ麺"], 
-      ["油そば", "油そば"], ["その他", "その他"]], include_blank: "選択して下さい" %>
+      ["油そば", "油そば"], ["その他", "その他"]], {include_blank: "選択して下さい"}, {class: 'form-control'} %>
   </div>
-  <div class="field">
-    <%= f.text_field :shop_name, placeholder: "店の名前" %>
+  <div class="form-group">
+    <%= f.label :shop_name, '店名' %>
+    <%= f.text_field :shop_name, placeholder: "店の名前を書いてください", class: "form-control" %>
   </div>
-  <div id="star">
+  <div id="star", class="form-group" >
     <%= f.label :star,'評価 ' %>
     <%= f.hidden_field :star, id: :review_star %>
   </div>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "ラーメンの情報を書いてください" %>
+  <div class="form-group">
+    <%= f.label :content, 'ラーメン情報' %>
+    <%= f.text_area :content, placeholder: "ラーメンの情報を書いてください", class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
+  <div class="form-group">
+    <%= f.label :prefecture_code,'都道府県' %>
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name,
+     {include_blank: "選択して下さい"}, { class: 'form-control'} %>
   </div>
-  <div class="field">
-    <%= f.text_area :address, placeholder: "店の住所を書いてください" %>
+  <div class="form-group">
+    <%= f.label :address, '住所' %>
+    <%= f.text_area :address, placeholder: "店の住所を書いてください", class: "form-control" %>
   </div>
   <%= f.submit "投稿", class: "btn btn-primary" %>
 <% end %>
+
 
 <script type="text/javascript">
 $(function() {
