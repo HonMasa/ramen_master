@@ -10,14 +10,19 @@
 header{
   background-color:#ff6600;
   height:60px;
+  
   h1, a{
     color:white;
     margin: auto 10px;
+  }
+  h1{
+    font-size: 1.5em;
   }
   
 }
 .links{
   background-color:#ff6600;
+  z-index:50;
 }
 
 
@@ -26,7 +31,7 @@ header{
   text-align:center;
 }
 .error{
-  text-align:center;
+  text-align: center;
   display: block;
   ul {
 	padding-left: 0;
@@ -49,20 +54,8 @@ header{
 
 
 .card{
-  width:30%;
-  height:400px;
-  background-color:#FFDBC9;
-  margin-bottom:30px;
   .post-image{
-      display: block;
-      border-radius: 2px 2px 0 0;
-      position: relative;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      height: 200px;
+      height: 250px;
   }
   
   li{
@@ -109,3 +102,7 @@ footer{
   }
 }
 
+//詳細画面
+.comment{
+  background-color:#DDDDDD;
+}

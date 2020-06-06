@@ -2,23 +2,28 @@
   <h1>該当する投稿がありません</h1>
 <% end %>
 <% posts.each do |post| %>
-  <div class="card">
-    <%= link_to("/posts/#{post.id}") do %>
-      <div class="ramen-image" >
-        <%= image_tag post.image.to_s, class: "post-image" %>
-      </div>
-      <ul>
-        <li class="ramen"><i class="fa fa-cutlery" aria-hidden="true"></i><%= post.ramen_name %></li>
-        <li class="shop"><i class="fa fa-home" aria-hidden="true"></i><%= post.shop_name %></li>
-        <li class="star">
-          <div id="star-rate-<%= post.id %>"></div>
-        </li>
-      </ul>
-      <!--<%#= post.user.name %>-->
-      <div id="post-<%= post.id %>">
-        <%= render "likes/like", post: post %>
-      </div>
-      <p class="float-right"><%= time_ago_in_words(post.created_at) %>前に作成</p>
+  <div class="col-sm-6 col-md-4" >
+    <div class="card img-thumbnail">
+      <%= link_to("/posts/#{post.id}") do %>
+      
+        <div class="ramen-image" >
+          <%= image_tag post.image.to_s, class: "post-image card-img-top" %>
+        </div>
+        <div class="card-body px-1 py-3">
+          <ul>
+            <li class="ramen"><i class="fa fa-cutlery" aria-hidden="true"></i><%= post.ramen_name %></li>
+            <li class="shop"><i class="fa fa-home" aria-hidden="true"></i><%= post.shop_name %></li>
+            <li class="star">
+              <div id="star-rate-<%= post.id %>"></div>
+            </li>
+          </ul>
+          <!--<%#= post.user.name %>-->
+          <div id="post-<%= post.id %>">
+            <%= render "likes/like", post: post %>
+          </div>
+          <p class="float-right"><%= time_ago_in_words(post.created_at) %>前に作成</p>
+        </div><!-- /.card-body -->
+        
       
       <script>
       $('#star-rate-<%= post.id %>').raty({
@@ -31,7 +36,9 @@
         score: <%= post.star %>,
       });
       </script>
-    <% end %>
-  </div>
+      
+      <% end %>
+    </div><!-- /.card -->
+  </div><!-- /.col-sm-6.col-md-4 -->  
 <% end %>
     
