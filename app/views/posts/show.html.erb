@@ -23,29 +23,31 @@
 <%= render "likes/liking_users", post: @post %>
 </div>
 
-<div class="comment-wrapper border-top　mb-10">
+<div class="comment-wrapper border-top　mb-10 ">
   <h5><i class="far fa-comments"></i>コメント</h5>
   <% if @comments.first.content==nil %>
     <p>この投稿にはまだコメントがありません</p>
   <% end %>
   <% @comments.each do |c| %>
-    <div>
-      <% unless c.user.blank? %>
-        <%= render "shared/user_link", user: c.user %>
-      <% end %>
+    <% unless c.content.nil? %>
+      <div class="mb-2 comment overflow-hidden">
+        <% unless c.user.blank? %>
+          <%= render "shared/user_link", user: c.user %>
+        <% end %>
+        <br />
+        <%= c.content %>
+        <% if c.user == current_user %>
+          <%= link_to "削除", "/posts/#{@post.id}/comments/#{c.id}" , method: :delete, class: "btn btn-danger float-right", data: { confirm: 'このコメントを削除しますか?' } %>
+        <% end %>
+      </div>
       <br />
-      <%= c.content %>
-      <% if c.user == current_user %>
-        <%= link_to "削除", "/posts/#{@post.id}/comments/#{c.id}" , method: :delete, class: "btn btn-danger float-right", data: { confirm: 'このコメントを削除しますか?' } %>
-      <% end %>
-    </div>
-    <br />
+    <% end %>
   <% end %>
-  <div class="form-group">
+  <div class="form-group overflow-hidden">
     <% if user_signed_in? %>
       <%= form_with(model: [@post, @comment], local: true) do |f| %>
         <%= f.text_area :content, class: "form-control", rows: 5 %>
-        <%= button_tag type: "submit", class: "btn btn-success float-right mt-1" do %>
+        <%= button_tag type: "submit", class: "btn btn-success float-right mt-1 " do %>
           <i class="far fa-comments"></i> コメントする
         <% end %>
       <% end %>
