@@ -1,22 +1,37 @@
 <% if posts.empty? %>
-      <h1>該当する投稿がありません</h1>
-    <% end %>
-    <% posts.each do |post| %>
-      <div class="card">
-        <%= link_to("/posts/#{post.id}") do %>
-          <div class="ramen-image" >
-            <%= image_tag post.image.to_s %>
-          </div>
-          <ul>
-            <li class="user"><%= post.user.name %></li>
-            <li class="content"><%= post.content %></li>
-            <li class="timestamp">
-              <%= time_ago_in_words(post.created_at) %>前に作成
-            </li>
-          </ul>
-          <div id="post-<%= post.id %>">
-            <%= render "likes/like", post: post %>
-          </div>
-        <% end %>
+  <h1>該当する投稿がありません</h1>
+<% end %>
+<% posts.each do |post| %>
+  <div class="card">
+    <%= link_to("/posts/#{post.id}") do %>
+      <div class="ramen-image" >
+        <%= image_tag post.image.to_s, class: "post-image" %>
       </div>
+      <ul>
+        <li class="ramen"><i class="fa fa-cutlery" aria-hidden="true"></i><%= post.ramen_name %></li>
+        <li class="shop"><i class="fa fa-home" aria-hidden="true"></i><%= post.shop_name %></li>
+        <li class="star">
+          <div id="star-rate-<%= post.id %>"></div>
+        </li>
+      </ul>
+      <!--<%#= post.user.name %>-->
+      <div id="post-<%= post.id %>">
+        <%= render "likes/like", post: post %>
+      </div>
+      <p class="float-right"><%= time_ago_in_words(post.created_at) %>前に作成</p>
+      
+      <script>
+      $('#star-rate-<%= post.id %>').raty({
+        size: 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        half: true,
+        readOnly: true,
+        score: <%= post.star %>,
+      });
+      </script>
     <% end %>
+  </div>
+<% end %>
+    

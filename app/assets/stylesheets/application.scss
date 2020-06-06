@@ -53,16 +53,16 @@ header{
   height:400px;
   background-color:#FFDBC9;
   margin-bottom:30px;
-  img{
-    display: block;
-    border-radius: 2px 2px 0 0;
-    position: relative;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 200px;
+  .post-image{
+      display: block;
+      border-radius: 2px 2px 0 0;
+      position: relative;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 200px;
   }
   
   li{
