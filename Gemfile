@@ -22,6 +22,7 @@ gem 'shoulda-matchers'
 gem 'turbolinks', '5.2.0'
 gem 'uglifier'
 gem 'webpacker', '4.0.7'
+gem 'mysql2'
 
 group :development, :test do
   gem 'byebug', '11.0.1', platforms: %i[mri mingw x64_mingw]
@@ -29,7 +30,7 @@ group :development, :test do
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'forgery_ja'
   gem 'rspec-rails', '4.0.1'
-  gem 'sqlite3', '1.4.1'
+  
 end
 
 group :development do
