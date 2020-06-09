@@ -30,7 +30,12 @@ group :development, :test do
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'forgery_ja'
   gem 'rspec-rails', '4.0.1'
-  
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv-vars'
+  gem 'capistrano3-puma'
 end
 
 group :development do
