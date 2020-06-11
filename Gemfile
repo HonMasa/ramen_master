@@ -4,13 +4,13 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'actionview'
-gem 'aws-sdk-s3'
+
 gem 'bootsnap', '1.4.4', require: false
 gem 'bootstrap'
 gem 'carrierwave'
 gem 'counter_culture'
 gem 'devise'
-gem 'fog-aws'
+
 gem 'jbuilder', '2.9.1'
 gem 'jp_prefecture'
 gem 'jquery-rails'
