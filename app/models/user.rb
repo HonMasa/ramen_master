@@ -14,6 +14,7 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 200 }
 
   mount_uploader :image, ImageUploader
+  has_one_attached :image
 
   # ゲストユーザーを作るときのメソッド
   def self.guest
