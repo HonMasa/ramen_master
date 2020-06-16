@@ -4,7 +4,7 @@ lock '~> 3.14.0'
 # Capistranoでの必須の設定
 set :application, 'ramen_master'
 set :repo_url, 'git@github.com:HonMasa/ramen_master.git'
-
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/upload"
 # Pumaに関する設定（後述）
 # ソケットの場所、Nginxとのやり取りに必要
 set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"
