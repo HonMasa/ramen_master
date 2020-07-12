@@ -1,13 +1,10 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  reconnect: false
-  database: ramen_master
-  pool: 5
-  username: masaya
-  password: lovewhat
-  socket: /var/lib/mysql/mysql.sock
-  host: ramen-master-mysql.ctingpvpbrhg.ap-northeast-1.rds.amazonaws.com
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch('MYSQL_USER') { 'root' } %>
+  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'password' } %>
+  host: db
 
 development:
   <<: *default
@@ -18,5 +15,13 @@ test:
   database: ramen_master_test
 
 production:
-  <<: *default
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: ramen_master
+  pool: 5
+  username: masaya
+  password: lovewhat
+  socket: /var/lib/mysql/mysql.sock
+  host: ramen-master-mysql.ctingpvpbrhg.ap-northeast-1.rds.amazonaws.com
   database: ramen_master_production
