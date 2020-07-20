@@ -8,10 +8,8 @@ RUN apt-get update -qq && \
     apt-get install -y build-essential \
                        libpq-dev \
                        nodejs \
-                       vim \
-                       yarn
+                       vim
                        
-RUN yarn install --check-files
                        
 
 RUN mkdir /ramen_master
