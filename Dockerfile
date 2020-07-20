@@ -7,8 +7,7 @@ RUN apt-get update -qq && \
                        nodejs \
                        vim
                        
-                       
-
+RUN NODE_ENV=development yarn install
 RUN mkdir /ramen_master
 
 WORKDIR /ramen_master
