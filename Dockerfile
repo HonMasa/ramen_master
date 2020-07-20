@@ -1,13 +1,11 @@
 FROM ruby:2.6.3
 
-
 RUN apt-get update -qq && \
     apt-get install -y build-essential \
                        libpq-dev \
                        nodejs \
                        vim
-                       
-RUN NODE_ENV=development yarn install
+
 RUN mkdir /ramen_master
 
 WORKDIR /ramen_master
