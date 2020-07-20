@@ -7,10 +7,10 @@ RUN apt-get update -qq && \
                        vim
                        
                        
-RUN apt-get update -y && \
-    apt-get install npm -y && \
-    npm uninstall yarn -g && \
-    npm install yarn -g -y
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update -qq \
+    && apt-get install -y nodejs yarn
 
 RUN mkdir /ramen_master
 
