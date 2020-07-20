@@ -11,6 +11,8 @@ RUN apt-get update -qq && \
                        vim \
                        yarn
                        
+RUN yarn install --check-files
+                       
 
 RUN mkdir /ramen_master
 
