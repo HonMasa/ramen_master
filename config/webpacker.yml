@@ -50,6 +50,10 @@ default: &default
 
 development:
   <<: *default
+  
+  dev_server:
+    host: webpacker
+    hmr: true
   compile: true
 
   # Verifies that correct packages and versions are installed by inspecting package.json, yarn.lock, and node_modules
