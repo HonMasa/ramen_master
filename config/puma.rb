@@ -39,6 +39,7 @@ pidfile ENV.fetch('PIDFILE') { 'tmp/pids/server.pid' }
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
 
+worker_timeout 3600
 
 
 app_root = File.expand_path("../..", __FILE__)
