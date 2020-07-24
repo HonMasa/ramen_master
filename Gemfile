@@ -2,7 +2,6 @@
 
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-gem 'rails', '6.0.3.1'
 gem 'actionview'
 gem 'bootsnap', '1.4.4', require: false
 gem 'bootstrap'
@@ -17,6 +16,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'mysql2'
 gem 'puma', '>= 3.12.6'
+gem 'rails', '6.0.3.1'
 gem 'rails', '6.0.3.1'
 gem 'rails-i18n'
 gem 'ransack'
@@ -38,6 +38,7 @@ group :development, :test do
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'forgery_ja'
   gem 'rspec-rails', '4.0.1'
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
