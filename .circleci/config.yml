@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      # ruby2.5.1を使ったアプリのため
+      # ruby2.6.3を使ったアプリのため
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
 
