@@ -30,6 +30,7 @@ gem 'shoulda-matchers'
 gem 'turbolinks', '5.2.0'
 gem 'uglifier'
 gem 'webpacker', '4.0.7'
+gem 'capistrano/rbenv'
 
 group :development, :test do
   gem 'byebug', '11.0.1', platforms: %i[mri mingw x64_mingw]
