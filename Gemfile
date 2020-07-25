@@ -5,6 +5,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'actionview'
 gem 'bootsnap', '1.4.4', require: false
 gem 'bootstrap'
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv'
+gem 'capistrano-rbenv-vars'
+gem 'capistrano3-puma'
 gem 'carrierwave'
 gem 'counter_culture'
 gem 'devise'
@@ -24,12 +30,6 @@ gem 'shoulda-matchers'
 gem 'turbolinks', '5.2.0'
 gem 'uglifier'
 gem 'webpacker', '4.0.7'
-gem 'capistrano'
-gem 'capistrano-bundler'
-gem 'capistrano-rails'
-gem 'capistrano-rbenv'
-gem 'capistrano-rbenv-vars'
-gem 'capistrano3-puma'
 
 group :development, :test do
   gem 'byebug', '11.0.1', platforms: %i[mri mingw x64_mingw]
