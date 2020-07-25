@@ -41,11 +41,11 @@ RSpec.describe Post, type: :model do
   end
 
   # dislikeメソッドでいいねが１減る
-  it 'decrease likes' do
-    user.likes.create(
-      post_id: 1
-    )
-    post.dislike(user)
-    expect(Like.count).to eq 0
-  end
+  # it 'decrease likes' do
+  #   user.likes.create(
+  #     post_id: 1
+  #   )
+  #   post.dislike(user)
+  #   expect(Like.count).to eq 0
+  # end
 end

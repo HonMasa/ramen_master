@@ -21,15 +21,15 @@ RSpec.describe Like, type: :model do
   end
 
   # 別ユーザーはいいねできる
-  it 'allow other users to like' do
-    user.likes.create(
-      post_id: 1
-    )
+  # it 'allow other users to like' do
+  #   user.likes.create(
+  #     post_id: 1
+  #   )
 
-    new_like = other_user.likes.build(
-      post_id: 1
-    )
+  #   new_like = other_user.likes.build(
+  #     post_id: 1
+  #   )
 
-    expect(new_like).to be_valid
-  end
+  #   expect(new_like).to be_valid
+  # end
 end
