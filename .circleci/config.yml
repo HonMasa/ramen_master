@@ -86,4 +86,4 @@ jobs:
           command: |
             bundle install
             cap install
-            bundle exec cap production deploy
+            cap production deploy
