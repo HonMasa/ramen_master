@@ -53,6 +53,14 @@ jobs:
       - run:
           name: run tests
           command: |
+            rm -rf bin/webpack*
+
+            gem install rails
+
+            rails webpacker:install
+
+            RAILS_ENV=test bundle exec rails webpacker:compile
+
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
               circleci tests split --split-by=timings)"
@@ -71,5 +79,4 @@ jobs:
           destination: test-results
 
       - add_ssh_keys:
-        fingerprints:
-          - "20:83:6e:69:17:5e:21:26:42:7f:e9:37:14:2b:9e:13"
+          fingerprints: "20:83:6e:69:17:5e:21:26:42:7f:e9:37:14:2b:9e:13"
