@@ -12,3 +12,6 @@ install_plugin Capistrano::SCM::Git
 install_plugin Capistrano::Puma
 
 Dir.glob('lib/capistrano/tasks/*.rb').each { |r| import r }
+
+Rake::Task[:production].invoke
+invoke :production
