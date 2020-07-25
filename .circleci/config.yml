@@ -83,5 +83,6 @@ jobs:
 
       - deploy:
           name: Capistrano deploy
-          command: 
+          command:
+            cap install
             bundle exec cap production deploy
