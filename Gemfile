@@ -5,12 +5,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'actionview'
 gem 'bootsnap', '1.4.4', require: false
 gem 'bootstrap'
-gem 'capistrano'
-gem 'capistrano-bundler'
-gem 'capistrano-rails'
-gem 'capistrano-rbenv'
-gem 'capistrano-rbenv-vars'
-gem 'capistrano3-puma'
 gem 'carrierwave'
 gem 'counter_culture'
 gem 'devise'
@@ -30,10 +24,15 @@ gem 'shoulda-matchers'
 gem 'turbolinks', '5.2.0'
 gem 'uglifier'
 gem 'webpacker', '4.0.7'
-gem 'capistrano/rbenv'
 
 group :development, :test do
   gem 'byebug', '11.0.1', platforms: %i[mri mingw x64_mingw]
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv-vars'
+  gem 'capistrano3-puma'
   gem 'factory_bot_rails'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'forgery_ja'
@@ -42,6 +41,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bcrypt_pbkdf'
+  gem 'ed25519'
   gem 'listen', '3.1.5'
   gem 'rubocop', require: false
   gem 'rubocop-rails'
