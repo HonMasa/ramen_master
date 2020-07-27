@@ -78,13 +78,13 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
-      # - add_ssh_keys:
-      #     fingerprints: "64:a5:d5:dc:33:b4:d6:17:dd:1c:a8:a7:05:a7:be:77"
+      - add_ssh_keys:
+          fingerprints: "64:a5:d5:dc:33:b4:d6:17:dd:1c:a8:a7:05:a7:be:77"
 
-      # - deploy:
-      #     name: Capistrano deploy
-      #     command: |
-      #       bundle install
-      #       gem install capistrano
-      #       cap install
-      #       cap production deploy
+      - deploy:
+          name: Capistrano deploy
+          command: |
+            bundle install
+            gem install capistrano
+            cap install
+            cap production deploy
