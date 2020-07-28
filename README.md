@@ -13,7 +13,8 @@ Things you may want to cover:
 
 * Database creation
 
-* Database initializationdr
+* Database initializationdr 
+
 
 * How to run the test suite
 
