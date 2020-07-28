@@ -89,5 +89,6 @@ jobs:
             gem install 'capistrano-rbenv'
             gem install 'capistrano-bundler'
             gem install 'capistrano-rails'
+            gem install 'capistrano3-puma'
             cap install
             cap production deploy
