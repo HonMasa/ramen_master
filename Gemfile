@@ -28,16 +28,16 @@ gem 'webpacker', '4.0.7'
 group :development, :test do
   gem 'byebug', '11.0.1', platforms: %i[mri mingw x64_mingw]
   gem 'capistrano'
+  gem 'capistrano3-puma'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-rbenv-vars'
-  gem 'capistrano3-puma'
   gem 'factory_bot_rails'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'forgery_ja'
-  gem 'rspec-rails', '4.0.1'
   gem 'rspec_junit_formatter'
+  gem 'rspec-rails', '4.0.1'
 end
 
 group :development do
