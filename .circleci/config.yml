@@ -84,6 +84,8 @@ jobs:
       - deploy:
           name: Capistrano deploy
           command: |
+            bundle install
             gem install capistrano
+            gem install 'capistrano-rbenv'
             cap install
             cap production deploy
