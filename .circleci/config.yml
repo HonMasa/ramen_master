@@ -83,8 +83,4 @@ jobs:
 
       - deploy:
           name: Capistrano deploy
-          command: |
-            bundle install
-            gem install capistrano
-            cap install
-            cap production deploy
+          command: cap production deploy
