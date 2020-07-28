@@ -88,5 +88,6 @@ jobs:
             gem install capistrano
             gem install 'capistrano-rbenv'
             gem install 'capistrano-bundler'
+            gem install 'capistrano-rails'
             cap install
             cap production deploy
