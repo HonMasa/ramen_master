@@ -90,5 +90,4 @@ jobs:
             gem install 'capistrano-bundler'
             gem install 'capistrano-rails'
             gem install 'capistrano3-puma'
-            gem install sassc -v '2.4.0'
             bundle exec cap production deploy
