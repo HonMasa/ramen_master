@@ -90,7 +90,7 @@ jobs:
             gem install 'capistrano-bundler'
             gem install 'capistrano-rails'
             gem install 'capistrano3-puma'
-            if [ "${CIRCLE_BRANCH}" != "master" ]; then
-              exit 0
-            fi
+            # if [ "${CIRCLE_BRANCH}" != "master" ]; then
+            #   exit 0
+            # fi
             bundle exec cap production deploy
