@@ -17,13 +17,13 @@
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= bootstrap_class_for(message_type) %>"><%= message %></div>
     <% end %>
-    
+
     <div class="container any_body">
       <%= yield %>
     </div>
-    
+
     <footer>
-      <p>ramen-masters</p>
+      <p>ramen-master</p>
     </footer>
   </body>
 </html>
