@@ -34,3 +34,7 @@ Rails/UniqueValidationWithoutIndex:
 
 Layout/LineLength:
   Max: 160
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/requests/users_request_spec.rb'
