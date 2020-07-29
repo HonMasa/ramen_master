@@ -6,14 +6,16 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
+ss
 * System dependenciesc
 
-* Configuration
+* Configuration 
+
 
 * Database creation
 
-* Database initializationdr
+* Database initializationdr 
+d
 
 * How to run the test suite
 
