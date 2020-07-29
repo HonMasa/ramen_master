@@ -86,7 +86,7 @@ RSpec.describe 'Users', type: :request do
         # 投稿を追加できないこと
         it 'does not add a post' do
           user_params = FactoryBot.attributes_for(:user, :invalid)
-          expect { post '/users', params: { user: user_params } }.to_not change { User.count }
+          expect { post '/users', params: { user: user_params } }.to_not change User.count
         end
       end
     end
@@ -189,7 +189,7 @@ RSpec.describe 'Users', type: :request do
       # 投稿を削除できないこと
       it 'does not delete the user' do
         sign_in @user
-        expect { delete '/users' }.to_not change { User.count }
+        expect { delete '/users' }.to_not change User.count
       end
 
       # ダッシュボードヘリダイレクトすること
