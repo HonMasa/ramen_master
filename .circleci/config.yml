@@ -84,6 +84,9 @@ jobs:
       - deploy:
           name: Capistrano deploy
           command: |
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then
+              exit 0
+            fi
             bundle install
             gem install capistrano
             gem install 'capistrano-rbenv'
