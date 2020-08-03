@@ -1,6 +1,6 @@
 class AddNameProfileToUsers < ActiveRecord::Migration[6.0]
   def change
-    add_column :users, :name, :string
+    change_table :users, bulk: true
     add_column :users, :profile, :text
   end
 end

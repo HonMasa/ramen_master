@@ -21,3 +21,20 @@ Metrics/BlockLength:
     
 Rails/InverseOf:
   Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/MethodLength:
+  Max: 20
+
+Rails/UniqueValidationWithoutIndex:
+  Exclude:
+    - 'app/models/like.rb'
+
+Layout/LineLength:
+  Max: 160
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/requests/users_request_spec.rb'
