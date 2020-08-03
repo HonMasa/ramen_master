@@ -27,7 +27,7 @@ RSpec.describe Like, type: :model do
     )
 
     new_like = other_user.likes.build(
-      post_id: 1
+      post_id: post.id
     )
 
     expect(new_like).to be_valid
