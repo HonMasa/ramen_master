@@ -15,7 +15,8 @@ class Post < ApplicationRecord
   end
 
   def dislike(user)
-    likes.find_by(user_id: user.id).destroy
+    like = likes.find_by(user_id: user.id)
+    like.destroy
   end
 
   include JpPrefecture
