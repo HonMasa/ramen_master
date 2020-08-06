@@ -15,7 +15,7 @@ ss
 * Database creation
 
 * Database initializationdr 
-d
+ddd
 
 * How to run the test suite
 
