@@ -6,6 +6,7 @@ gem 'actionview'
 gem 'bootsnap', '1.4.4', require: false
 gem 'bootstrap'
 gem 'carrierwave'
+gem 'coffee-rails'
 gem 'counter_culture'
 gem 'devise'
 gem 'dotenv-rails'
@@ -26,7 +27,6 @@ gem 'shoulda-matchers'
 gem 'turbolinks', '5.2.0'
 gem 'uglifier'
 gem 'webpacker', '4.0.7'
-gem 'coffee-rails'
 
 group :development, :test do
   gem 'byebug', '11.0.1', platforms: %i[mri mingw x64_mingw]
