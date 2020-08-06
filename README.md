@@ -15,9 +15,9 @@ ss
 * Database creation
 
 * Database initializationdr 
-d
+ddd
 
-* How to run the test suite
+* How to run the test suitess
 
 * Services (job queues, cache servers, search engines, etc.)
 

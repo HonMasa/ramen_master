@@ -58,6 +58,7 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:ramen_name, :content, :image, :image_cache,
-                                 :shop_name, :ramen_kind, :star, :prefecture_code, :address)
+                                 :shop_name, :ramen_kind, :star, :prefecture_code, :address,
+                                 :latitude, :longitude)
   end
 end

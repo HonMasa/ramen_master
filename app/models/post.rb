@@ -9,6 +9,8 @@ class Post < ApplicationRecord
   validates :ramen_name, presence: true
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 250 }
+  geocoded_by :address
+  after_validation :geocode
 
   def like(user)
     likes.create(user_id: user.id)
