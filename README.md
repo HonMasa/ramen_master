@@ -19,7 +19,7 @@ ddd
 
 * How to run the test suitess
 
-* Services (job queues, cache servers, search engines, etc.)
+* Services (job queues, cache serverss, search engines, etc.)
 
 * Deployment instructions
 bgg
