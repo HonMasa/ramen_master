@@ -1,6 +1,6 @@
 class AddColumnToPost < ActiveRecord::Migration[6.0]
   def change
-    add_column :posts, :latitude, :float
-    add_column :posts, :longitude, :float
+    change_table :posts, bulk: true, latitude: Float
+    add_column :posts, :longitude, :Float
   end
 end

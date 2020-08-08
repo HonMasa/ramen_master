@@ -38,8 +38,4 @@ Layout/LineLength:
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/requests/users_request_spec.rb'
-
-Rails/BulkChangeTable:
-  Exclude:
-    - 'db/migrate/20200804030726_add_column_to_post.rb'
     
