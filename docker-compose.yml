@@ -16,10 +16,10 @@ services:
     build: .
     command: bundle exec puma -C config/puma.rb
     volumes:
-      - .:/ramen_master
-      - public-data:/ramen_master/public
-      - tmp-data:/ramen_master/tmp
-      - log-data:/ramen_master/log
+      - .:/ramen_master:delegated
+      - public-data:/ramen_master/public:delegated
+      - tmp-data:/ramen_master/tmp:delegated
+      - log-data:/ramen_master/log:delegated
 
   web:
     build:
