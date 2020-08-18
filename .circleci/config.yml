@@ -58,6 +58,7 @@ jobs:
             gem install rails
 
             rails webpacker:install
+            rails yarn:install
 
             RAILS_ENV=test bundle exec rails webpacker:compile
 
