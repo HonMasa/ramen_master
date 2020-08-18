@@ -3,6 +3,7 @@
     <%= form_for(post.likes.build, remote: true) do |f| %>
       <div><%= hidden_field_tag :post_id, post.id %></div>
       <%= button_tag(class: "btn btn-default btn-xs") do %>
+        いいね!
         <i class="fas fa-heart"></i>
         <%= content_tag :span, "#{post.likes_count}" %>
       <% end %>
@@ -11,6 +12,7 @@
     <% if current_user.already_liked?(post) %>
       <%= form_for(post.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
         <%= button_tag(class: "btn btn-default btn-xs") do %>
+          いいね!
           <i class="fas fa-heart" style="color:red"></i>
           <%= content_tag :span, "#{post.likes_count}" %>
         <% end %>
@@ -19,6 +21,7 @@
       <%= form_for(post.likes.build, remote: true) do |f| %>
         <div><%= hidden_field_tag :post_id, post.id %></div>
         <%= button_tag(class: "btn btn-default btn-xs") do %>
+          いいね!
           <i class="fas fa-heart"></i>
           <%= content_tag :span, "#{post.likes_count}" %>
         <% end %>
