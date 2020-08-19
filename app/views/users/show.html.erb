@@ -1,23 +1,26 @@
-<h1><%= @user.name %></h1>
-<% if @user.image? %>
-  <img src='<%= @user.image %>' class="icon_image rounded-circle" alt="ユーザーアイコン" height="200" width="200">
-<% else %>
-  <img src="/assets/default.png" class="icon_image rounded-circle" alt="ユーザーアイコン" height="200" width="200">
-<% end %>
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール : <%= @user.profile %></p>
-<div id="relationship">
-  <%= render "relationship" %>
+<div class="row">
+  <div class="col-sm-12 col-md-6 col-lg-4">
+    <% if @user.image? %>
+      <img src='<%= @user.image %>' class="icon_image rounded-circle" alt="ユーザーアイコン" height="200" width="200">
+    <% else %>
+      <img src="/assets/default.png" class="icon_image rounded-circle" alt="ユーザーアイコン" height="200" width="200">
+    <% end %>
+    <div>
+      <%= render "follow_form" %>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-8">
+    <table id="relationship">
+      <%= render "relationship" %>
+    </table>
+    <% if current_user != nil %>
+      <% if @user.id == current_user.id && current_user.email != "guest@example.com" %>
+        <%= link_to "編集", "/users/edit", class: 'btn btn-success' %>
+        <%= link_to "削除", "/users", class: 'btn btn-danger', method: :delete, data: {confirm: "ユーザーを削除しますか？"} %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-<div>
-  <%= render "follow_form" %>
-</div>
-<% if current_user != nil %>
-  <% if @user.id == current_user.id && current_user.email != "guest@example.com" %>
-    <%= link_to "編集", "/users/edit", class: 'btn btn-success' %>
-    <%= link_to "削除", "/users", class: 'btn btn-danger', method: :delete, data: {confirm: "ユーザーを削除しますか？"} %>
-  <% end %>
-<% end %>
 <h3>いいねしている投稿</h3>
 <div class="container">
   <div class="row">
