@@ -16,6 +16,36 @@ RSpec.describe Post, type: :model do
     expect(post).to be_invalid
   end
 
+  # 種類がなければ無効な状態であること
+  it 'is invalid without a ramen_kind' do
+    post.ramen_kind = nil
+    expect(post).to be_invalid
+  end
+
+  # 店名がなければ無効な状態であること
+  it 'is invalid without a shop_name' do
+    post.shop_name = nil
+    expect(post).to be_invalid
+  end
+
+  # 評価がなければ無効な状態であること
+  it 'is invalid without a star' do
+    post.star = nil
+    expect(post).to be_invalid
+  end
+
+  # 住所がなければ無効な状態であること
+  it 'is invalid without a address' do
+    post.address = nil
+    expect(post).to be_invalid
+  end
+
+  # 都道府県がなければ無効な状態であること
+  it 'is invalid without a prefecture_code' do
+    post.prefecture_code = nil
+    expect(post).to be_invalid
+  end
+
   # 文章がなければ無効な状態であること
   it 'is invalid without a content' do
     post.content = nil

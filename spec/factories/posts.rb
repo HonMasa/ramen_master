@@ -4,6 +4,10 @@ FactoryBot.define do
     content { 'test content' }
     association :owner
     prefecture_code { 13 }
+    address { 'tokyo' }
+    ramen_kind { '醤油' }
+    shop_name { 'test_shop' }
+    star { 2 }
 
     # 無効になっている
     trait :invalid do

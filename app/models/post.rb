@@ -9,6 +9,11 @@ class Post < ApplicationRecord
   validates :ramen_name, presence: true
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 250 }
+  validates :ramen_kind, presence: true
+  validates :shop_name, presence: true
+  validates :star, presence: true
+  validates :address, presence: true
+  validates :prefecture_code, presence: true
   geocoded_by :address
   after_validation :geocode
 
