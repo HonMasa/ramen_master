@@ -16,9 +16,7 @@ RSpec.feature 'Posts', type: :feature do
       fill_in 'ラーメン名', with: 'ramen_name'
       find("option[value='醤油']").select_option
       fill_in '店名', with: 'ramen_shop'
-      within '#star' do
-        page.all('img')[2].click
-      end
+      page.all('img')[3].click
       fill_in '都道府県', with: '13'
       fill_in '住所', with: '東京'
       click_button '投稿'
