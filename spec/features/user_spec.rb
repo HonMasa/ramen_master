@@ -16,4 +16,17 @@ RSpec.feature 'Users', type: :feature do
       expect(page).to have_content 'アカウントを登録しました。'
     end.to change { User.count }.by(1)
   end
+
+  # ログインする
+  scenario 'creates a new user' do
+    visit root_path
+    user = FactoryBot.create(:user)
+
+    click_link 'ログイン'
+    fill_in 'メールアドレス', with: user.email
+    fill_in 'パスワード', with: user.password
+    click_button 'ログイン'
+
+    expect(page).to have_content 'ログインしました。'
+  end
 end
