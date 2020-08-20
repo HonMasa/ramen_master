@@ -15,6 +15,6 @@ RSpec.feature 'Users', type: :feature do
       click_button '登録'
 
       expect(page).to have_content 'アカウントを登録しました。'
-    end.to change(User.count).by(1)
+    end.to change { User.count }.by(1)
   end
 end
