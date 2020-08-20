@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature 'Users', type: :feature do
-  pending "add some scenarios (or delete) #{__FILE__}"
   # 新しいユーザーを作成する
   scenario 'creates a new user' do
     visit root_path
