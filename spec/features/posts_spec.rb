@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Posts', type: :feature do
   # ユーザーは新しい投稿を作成する
-  scenario 'user creates a new project' do
+  scenario 'user creates a new project', js: true do
     user = FactoryBot.create(:user)
 
     visit root_path
