@@ -25,6 +25,6 @@ RSpec.feature 'Posts', type: :feature do
 
       expect(page).to have_content '記事を投稿しました！'
       expect(page).to have_content 'ramen_name'
-    end.to change(user.projects, :count).by(1)
+    end.to change(user.posts, :count).by(1)
   end
 end
