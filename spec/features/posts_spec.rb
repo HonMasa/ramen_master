@@ -16,7 +16,7 @@ RSpec.feature 'Posts', type: :feature do
     expect do
       click_link '新規投稿'
       fill_in 'ラーメン名', with: 'ramen_name'
-      fill_in 'ラーメンの種類', with: '醤油'
+      find("option[value='醤油']").select_option
       fill_in '店名', with: 'ramen_shop'
       fill_in '評価', with: '2'
       fill_in '都道府県', with: '13'
