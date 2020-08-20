@@ -3,5 +3,10 @@ ja:
     attributes:
       post:
         ramen_name: ラーメンの名前
-        content: ラーメンの情報
+        content: 口コミ
+        prefecture_code: 都道府県
+        address: 住所
+        ramen_kind: ラーメンの種類
+        shop_name: 店名
+        star: 評価
         
