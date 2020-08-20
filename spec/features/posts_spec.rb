@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Posts', type: :feature do
-
-  ユーザーは新しい投稿を作成する
+  # ユーザーは新しい投稿を作成する
   scenario 'user creates a new project' do
     user = FactoryBot.create(:user)
 
@@ -17,7 +16,7 @@ RSpec.feature 'Posts', type: :feature do
       fill_in 'ラーメン名', with: 'ramen_name'
       find("option[value='醤油']").select_option
       fill_in '店名', with: 'ramen_shop'
-      within "#star" do
+      within '#star' do
         page.all('img')[4].click
       end
       fill_in '都道府県', with: '13'
