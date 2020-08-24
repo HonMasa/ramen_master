@@ -4,7 +4,6 @@
 自分の食べたラーメンを他のユーザーと共有出来ます。開発環境にDocker、インフラにAWSを使用しています。
 
 # URL
-
 https://ramen-master.work
 
 # 制作背景
