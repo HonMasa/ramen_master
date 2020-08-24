@@ -7,6 +7,8 @@
 
 https://ramen-master.work
 
+# 制作背景
+
 # 使用技術
 * Ruby 2.6.3
 * Rails 6.0.3.1
