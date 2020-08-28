@@ -2,6 +2,7 @@
 
 就職活動用のポートフォリオとして制作した自作アプリです。
 自分の食べたラーメンを他のユーザーと共有出来ます。開発環境にDocker、インフラにAWSを使用しています。
+![ramen-master work_top_index](https://user-images.githubusercontent.com/54571432/91547121-680b7380-e95e-11ea-8b7e-95e46fd695ab.png)
 
 # URL
 https://ramen-master.work
