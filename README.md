@@ -6,8 +6,6 @@
 # URL
 https://ramen-master.work
 
-# 制作背景
-
 # 使用技術
 * Ruby 2.6.3
 * Rails 6.0.3.1
@@ -24,3 +22,13 @@ https://ramen-master.work
 
 # AWS構成図
 ![Untitled Diagram](https://user-images.githubusercontent.com/54571432/90956012-b2ec3d80-e4bd-11ea-8174-1a615795ab1c.jpg)
+
+# 機能一覧
+* ユーザー登録・ログイン機能（devise）
+* 投稿機能(投稿詳細表示、投稿編集、投稿削除、投稿一覧表示)
+* 画像アップロード(carrierwave)
+* 検索機能(ransack)
+* いいね機能（Ajax）
+* フォロー・フォロワー機能
+* プロフィール表示機能
+* 投稿詳細画面にmapを表示
