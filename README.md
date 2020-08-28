@@ -15,6 +15,7 @@ https://ramen-master.work
 * Bootstrap
 * AWS (EC2, RDS, S3, VPC, Route53, ALB, ACM)
 * Docker/docker-compose
+* Capistrano
 * CircleCI (CI/CD)
 * Nginx, Puma
 * Rubocop
