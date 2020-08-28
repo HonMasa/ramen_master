@@ -18,7 +18,7 @@
             </li>
           </ul>
           <!--<%#= post.user.name %>-->
-          <div id="post-<%= post.id %>">
+          <div id="post-<%= post.id %>" class="ml-4">
             <%= render "likes/like", post: post %>
           </div>
           <p class="float-right"><%= time_ago_in_words(post.created_at) %>前に作成</p>
