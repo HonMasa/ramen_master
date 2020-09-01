@@ -1,4 +1,4 @@
 <h1>フォローしているユーザー</h1>
 <% @users.each do |user| %>
-  <%= user.name %>
+  <%= render "shared/user_link", user: user %>
 <% end %>

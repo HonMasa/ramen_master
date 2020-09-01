@@ -1,13 +1,26 @@
-<%= render "user_info" %>
+<%# <%= render "user_info" %>
+
+<tr>
+  <th>名前</th>
+  <td><%= @user.name %></td>
+</tr>
+<tr>    
+  <th>メールアドレス</th>
+  <td><%= @user.email %></td>
+</tr>
+<tr>
+  <th>プロフィール</th>
+  <td><%= @user.profile %></td>
+</tr>
 <tr class="follower">
   <th>フォロワー</th>
-  <%= link_to followers_user_path(@user.id) do %>
-    <td style="color: black;"><%= @user.followers.count %>人</td>
-  <% end %>
+  <td style="color: black;">
+    <%= link_to followers_user_path(@user.id) do %><%= @user.followers.count %>人<% end %>
+  </td>
 </tr>
 <tr class="follow">
   <th>フォロー</th>
-  <%= link_to following_user_path(@user.id) do %>
-    <td style="color: black;"><%= @user.following.count %>人</td>
-  <% end %>
+  <td style="color: black;">
+    <%= link_to following_user_path(@user.id) do %><%= @user.following.count %>人<% end %>
+  </td>
 </tr>
