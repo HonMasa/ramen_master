@@ -1,5 +1,5 @@
 
-<h1><%= @post.ramen_name %></h1>
+<h1><%= @post.ramen_name %><%= @post.latitude %></h1>
 <div class="row">
   <div class="col-sm-12 col-md-6 col-lg-4">
     <%= image_tag @post.image.to_s, :size => '200x200' %>
@@ -105,7 +105,7 @@ $('#star-rate-<%= @post.id %>').raty({
       {
         "lat": <%= @post.latitude %>,
         "lng": <%= @post.longitude %>,
-        "infowindow": '<p><%= @post.shop_name %></p><p><%= @post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@post.latitude},#{@post.longitude}&iwloc=J",target: "_blank" %></p>'
+        "infowindow": '<p><%= @post.shop_name %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@post.latitude},#{@post.longitude}&iwloc=J",target: "_blank" %></p>'
       }
     ]);
     handler.bounds.extendWith(markers);
