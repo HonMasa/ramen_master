@@ -15,7 +15,7 @@ class Post < ApplicationRecord
   validates :address, presence: true
   validates :prefecture_code, presence: true
   geocoded_by :address
-  after_validation :geocode
+  after_validation :geocode, if: :address_changed?
 
   def like(user)
     likes.create(user_id: user.id)
