@@ -19,6 +19,7 @@ https://ramen-master.work
 * Rubocop
 * RSpec
 * Git, GitHub
+* Google API (Maps Javascript API, Geocoding API)
 
 # AWS構成図
 ![Untitled Diagram](https://user-images.githubusercontent.com/54571432/90956012-b2ec3d80-e4bd-11ea-8174-1a615795ab1c.jpg)
@@ -30,7 +31,7 @@ https://ramen-master.work
 * 画像アップロード(carrierwave)
 * 検索機能(ransack)
 * いいね機能（Ajax）
-* フォロー・フォロワー機能
-* • ページネーション機能（Kaminari）
+* フォロー・フォロワー機能(Ajax)
+* ページネーション機能（Kaminari）
 * プロフィール表示機能
 * 投稿詳細画面にmapを表示
