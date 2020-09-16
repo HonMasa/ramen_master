@@ -5,6 +5,7 @@ class LikesController < ApplicationController
     unless current_user.already_liked?(@post)
       @post.like(current_user)
       @post.reload
+      @post.create_notification_by(current_user)
       respond_to do |format|
         format.html { redirect_to request.referer || root_url }
         format.js

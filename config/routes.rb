@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root 'top#index'
   get 'top/index'
 
+  get 'notifications/index'
+  delete 'notifications/destroy_all'
   resources :posts do
     resources :comments, only: %i[create destroy]
   end
