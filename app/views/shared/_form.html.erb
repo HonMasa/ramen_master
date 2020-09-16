@@ -71,5 +71,8 @@ $('#star').raty({
     starHalf: '<%= asset_path('star-half.png') %>',
     scoreName: 'post[star]',
     half: true,
+    <% if @post.star != nil %>
+      score: <%= @post.star %>,
+    <% end %>
   });
 </script>
