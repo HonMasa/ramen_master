@@ -23,7 +23,7 @@ Rails/InverseOf:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 20
+  Max: 40
 
 Metrics/MethodLength:
   Max: 20
@@ -33,7 +33,7 @@ Rails/UniqueValidationWithoutIndex:
     - 'app/models/like.rb'
 
 Layout/LineLength:
-  Max: 160
+  Max: 210
 
 Lint/AmbiguousBlockAssociation:
   Exclude:
