@@ -4,7 +4,7 @@ FactoryBot.define do
     visited_id { 1 }
     post_id { 1 }
     comment_id { 1 }
-    action { "MyString" }
+    action { 'MyString' }
     checked { false }
   end
 end
