@@ -135,3 +135,12 @@ table td{
   background-color: #eee;
   padding: 10px 0;
 }
+
+
+.heading{
+  padding-left: 0.5em;/*文字周りの余白*/
+  color: #494949;/*文字色*/
+  border-left: solid 5px #ff6600;/*左線（実線 太さ 色）*/
+  border-bottom: dashed 3px #ff6600;
+}
+

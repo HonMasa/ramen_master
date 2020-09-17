@@ -1,5 +1,5 @@
 
-<h1><%= @post.ramen_name %></h1>
+<h1 class="heading"><%= @post.ramen_name %></h1>
 <div class="row">
   <div class="col-sm-12 col-md-6 col-lg-4">
     <%= image_tag @post.image.to_s, class: "post-image card-img-top" %>
@@ -55,25 +55,26 @@
 </div>
 
 <div class="comment-wrapper border-top　mb-10 ">
-  <h5><i class="far fa-comments"></i>コメント</h5>
+  <h5 class="heading mt-2"><i class="far fa-comments"></i>コメント</h5>
   <% if @comments.first.content==nil %>
     <p>この投稿にはまだコメントがありません</p>
   <% end %>
-  <% @comments.each do |c| %>
-    <% unless c.content.nil? %>
-      <div class="mb-2 comment overflow-hidden">
-        <% unless c.user.blank? %>
-          <%= render "shared/user_link", user: c.user %>
-        <% end %>
+  <div class="">
+    <% @comments.each do |c| %>
+      <% unless c.content.nil? %>
+        <div class="mb-2 comment overflow-hidden">
+          <% unless c.user.blank? %>
+            <%= render "shared/user_link", user: c.user %>
+          <% end %>
+          <p><%= c.content %></p>
+          <% if c.user == current_user %>
+            <%= link_to "削除", "/posts/#{@post.id}/comments/#{c.id}" , method: :delete, class: "btn btn-danger float-right", data: { confirm: 'このコメントを削除しますか?' } %>
+          <% end %>
+        </div>
         <br />
-        <%= c.content %>
-        <% if c.user == current_user %>
-          <%= link_to "削除", "/posts/#{@post.id}/comments/#{c.id}" , method: :delete, class: "btn btn-danger float-right", data: { confirm: 'このコメントを削除しますか?' } %>
-        <% end %>
-      </div>
-      <br />
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
   <div class="form-group overflow-hidden">
     <% if user_signed_in? %>
       <%= form_with(model: [@post, @comment], local: true) do |f| %>
